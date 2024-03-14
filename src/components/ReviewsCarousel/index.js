@@ -7,17 +7,16 @@ class ReviewsCarousel extends Component {
 
   onLeftArrow = () => {
     const {index} = this.state
-    this.setState(prevState => ({index: prevState.index - 1}))
-    if (index === 0) {
-      this.setState({index: 3})
+    if (index > 0) {
+      this.setState(prevState => ({index: prevState.index - 1}
     }
   }
 
   onRightArrow = () => {
     const {index} = this.state
-    this.setState(prevState => ({index: prevState.index + 1}))
-    if (index === 3) {
-      this.setState({index: 0})
+    const {reviewsList} = this.props
+    if (index < reviewsList.length-1) {
+      this.setState(prevState => ({index: prevState.index + 1}))
     }
   }
 
